@@ -26,7 +26,7 @@ breakfast virtio_x86_64
 echo "$(jq '. += [{"repository": "android_kernel_mainline_configs", "target_path": "kernel/mainline/configs"}]' device/mainline/common/lineage.dependencies)" > device/mainline/common/lineage.dependencies
 breakfast virtio_x86_64 userdebug
 m recoveryimage
-mv out/target/product/virtio_arm64only/recovery.img ../../recovery-userdebug.img
+mv out/target/product/virtio_x86_64/recovery.img ../../recovery-userdebug.img
 breakfast virtio_x86_64 userdebug
 m espimage-install
 breakfast virtio_x86_64 user # breakfast virtio_arm64only
