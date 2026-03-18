@@ -29,6 +29,6 @@ echo "CONFIG_ALARMTIMER=y" >> kernel/virt/virtio/arch/x86_64/configs/lineageos/v
 
 breakfast virtio_x86_64 userdebug
 m recoveryimage
-mv out/target/product/virtio_arm64only/recovery.img ../../recovery-userdebug.img
+mv out/target/product/virtio_x86_64/recovery.img ../../recovery-userdebug.img
 breakfast virtio_x86_64 user # breakfast virtio_arm64only
 m vm-utm-zip otapackage
