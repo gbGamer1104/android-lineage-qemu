@@ -24,11 +24,11 @@ source build/envsetup.sh
 export AB_OTA_UPDATER=false ROOMSERVICE_BRANCHES="lineage-23.1 lineage-23.0"
 breakfast virtio_arm64only
 sed -i 's|current_slot = GetProperty("ro.boot.slot_suffix", "")\[1\];|{ string suffix = GetProperty("ro.boot.slot_suffix", ""); if (suffix.size() >= 2) current_slot = string(1, suffix[1]); }|' hardware/mainline/common/grub/libgrub_boot_control/GrubBootControl.cpp 
-echo "CONFIG_RTC_CLASS=y" >> kernel/virt/virtio/arch/arm64/configs/lineageos/virtio.config
-echo "CONFIG_ALARMTIMER=y" >> kernel/virt/virtio/arch/arm64/configs/lineageos/virtio.config
+echo "CONFIG_RTC_CLASS=y" >> kernel/virt/virtio/arch/x86_64/configs/lineageos/virtio.config
+echo "CONFIG_ALARMTIMER=y" >> kernel/virt/virtio/arch/x86_64/configs/lineageos/virtio.config
 
-breakfast virtio_arm64only userdebug
+breakfast virtio_x86_64 userdebug
 m recoveryimage
 mv out/target/product/virtio_arm64only/recovery.img ../../recovery-userdebug.img
-breakfast virtio_arm64only user # breakfast virtio_arm64only
+breakfast virtio_x86_64 user # breakfast virtio_arm64only
 m vm-utm-zip otapackage
